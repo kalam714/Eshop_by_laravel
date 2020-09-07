@@ -1,13 +1,14 @@
 @extends('layouts.login')
 @section('title')
-Login
+
 @section('content')
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('frondend/login/images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('frontend/login/images/bg-01.jpg');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
+				<a  href="{{URL::to('/')}}" ></a>
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
