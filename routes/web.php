@@ -26,15 +26,23 @@ Route::get('/signup','ClientController@signup');
 
 
 Route::get('/admin','AdminController@dashboard');
-Route::get('/addcategory','AdminController@addCategory');
-Route::get('/categories','AdminController@categories');
-Route::get('/orders','AdminCOntroller@orders');
+Route::get('/orders','AdminController@orders');
+
+
+Route::get('/addcategory','CategoryController@addCategory');
+Route::post('/addcategory','CategoryController@savecategory');
+Route::get('/categories','CategoryController@categories');
+Route::get('/edit/{id}', 'CategoryController@edit');
+Route::post('/updatecategory', 'CategoryController@updatecategory');
+Route::get('/delete/{id}', 'CategoryController@delete');
+
 
 
 
 Route::get('/addproduct','ProductController@addProduct');
-
 Route::get('/product','ProductController@product');
+Route::post('/saveproduct','ProductController@saveproduct');
+
 Route::get('/slider','SliderController@slider');
 Route::get('/addslider','SliderController@addSlider');
 

@@ -13,4 +13,14 @@ class ProductController extends Controller
     public function addProduct(){
         return view('admin.addProduct');
     }
+    public function saveproduct(Request,$request){
+        $this->validate($request,[
+            'product_name' =>'required',
+            'product_price' =>'required',
+            'product_name' =>'required',
+            'product_image' =>'required',
+
+
+        ]);
+    }
 }

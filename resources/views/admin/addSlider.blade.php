@@ -5,7 +5,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Basic form validation</h4>
-                  <form class="cmxform" id="commentForm" method="get" action="#">
+                 
                   {!! Form::open(['acttion'=>'AdminController@addProduct','class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
                   {{csrf_field()}}
                 
