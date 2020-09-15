@@ -10,23 +10,22 @@
                   {{Session::get('status')}}
                   </div>
                   @endif
-                
-                  {!! Form::open(['acttion'=>'ProductController@saveproduct','class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'enctype'=>'multipart/form-data']) !!}
+                  {{Form::hidden('id',$product->id)}}
+                  {!! Form::open(['acttion'=>'ProductController@updateproduct','class'=>'cmxform', 'method'=>'POST','id'=>'commentForm', 'enctype'=>'multipart/form-data']) !!}
                   {{csrf_field()}}
                 
                    <div class="form-group">
                    {{Form::label('', 'Product Name',['for'=>'cname'])}}
-                     {{Form::text('product_name','',['class'=>'form-control'])}}
+                     {{Form::text('product_name',$product->product_name,['class'=>'form-control'])}}
                    </div>
                    <div class="form-group">
                    {{Form::label('', 'Product Price',['for'=>'cname'])}}
-                     {{Form::number('product_price','',['class'=>'form-control'])}}
+                     {{Form::number('product_price',$product->product_price,['class'=>'form-control'])}}
                    </div>
                    <div class="form-group">
                    
                    {{Form::label('', 'Product Category')}}
-                   {{Form::select('product_category',$categories, null, 
-                   ['placeholder' => 'select category','class'=>'form-control'])}}
+                   {{Form::select('product_category',$categories,$product->product_category, ['class'=>'form-control'])}}
                    </div>
                    <div class="form-group">
                    {{Form::label('', 'Product Image',['for'=>'cname'])}}
@@ -35,7 +34,7 @@
                    </div>
                   
 
-                    {{Form::submit('save',['class'=>'btn btn-primary'])}}
+                    {{Form::submit('Update',['class'=>'btn btn-primary'])}}
    
                  {!! Form::close() !!}
                       

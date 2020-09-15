@@ -41,7 +41,12 @@ Route::get('/delete/{id}', 'CategoryController@delete');
 
 Route::get('/addproduct','ProductController@addProduct');
 Route::get('/product','ProductController@product');
-Route::post('/saveproduct','ProductController@saveproduct');
+Route::post('/addproduct','ProductController@saveproduct');
+Route::get('/editProduct/{id}','ProductController@editProduct');
+Route::post('/updateproduct','ProductController@updateproduct');
+Route::get('/deleteProduct/{id}','ProductController@deleteProduct');
+Route::get('/active/{id}','ProductController@active');
+Route::get('/unactive/{id}','ProductController@unactive');
 
 Route::get('/slider','SliderController@slider');
 Route::get('/addslider','SliderController@addSlider');
