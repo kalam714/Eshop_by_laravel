@@ -50,5 +50,9 @@ Route::get('/unactive/{id}','ProductController@unactive');
 
 Route::get('/slider','SliderController@slider');
 Route::get('/addslider','SliderController@addSlider');
+Route::post('/addslider','SliderController@saveslider');
+Route::get('/deleteslider/{id}','SliderController@deleteslider');
+Route::get('/active/{id}','SliderController@active');
+Route::get('/unactive/{id}','SliderController@unactive');
 
 

@@ -4,9 +4,14 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Basic form validation</h4>
+                  <h4 class="card-title">Create Slider</h4>
+                  @if(Session::has('status'))
+                  <div class="alert alert-success">
+                  {{Session::get('status')}}
+                  </div>
+                  @endif
                  
-                  {!! Form::open(['acttion'=>'AdminController@addProduct','class'=>'cmxform', 'method'=>'POST','id'=>'commentForm']) !!}
+                  {!! Form::open(['acttion'=>'SliderController@saveslider','class'=>'cmxform', 'method'=>'POST','id'=>'commentForm','enctype'=>'multipart/form-data']) !!}
                   {{csrf_field()}}
                 
                    <div class="form-group">
@@ -24,12 +29,7 @@
                    {{Form::file('slider_image',['class'=>'form-control'])}}
                    
                    </div>
-                   <div class="form-group">
-                   {{Form::label('', 'Slider Status',['for'=>'cname'])}}
-                   {{Form::checkbox('slider_status','','true',['class'=>'form-control'])}}
                    
-                   </div>
-
                     {{Form::submit('save',['class'=>'btn btn-primary'])}}
    
                  {!! Form::close() !!}
