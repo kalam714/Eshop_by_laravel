@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
 
 
 class CategoryController extends Controller
@@ -55,6 +56,13 @@ public function delete($id){
     $category=Category::find($id);
     $category->delete();
     return redirect('/categories')->with('status','The' .$category->category_name.'Category has been Delete successfully');
+
+}
+
+public function view_by_cat($name){
+    $categoris=Category::get();
+    $products=Product::where('product_category',$name)->get();
+    return view('client.shop')->with('products',$products)->with('categories',$categoris);
 
 }
 

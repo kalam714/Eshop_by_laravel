@@ -23,7 +23,8 @@ Route::get('/cart', 'ClientController@cart');
 Route::get('/checkout', 'ClientController@checkout');
 Route::get('/login','ClientController@login');
 Route::get('/signup','ClientController@signup');
-
+Route::post('/createaccount','ClientController@createaccount');
+Route::post('/accessaccount','ClientController@accessaccount');
 
 Route::get('/admin','AdminController@dashboard');
 Route::get('/orders','AdminController@orders');
@@ -35,6 +36,7 @@ Route::get('/categories','CategoryController@categories');
 Route::get('/edit/{id}', 'CategoryController@edit');
 Route::post('/updatecategory', 'CategoryController@updatecategory');
 Route::get('/delete/{id}', 'CategoryController@delete');
+Route::get('/view_by_cat/{name}','CategoryController@view_by_cat');
 
 
 
@@ -47,6 +49,7 @@ Route::post('/updateproduct','ProductController@updateproduct');
 Route::get('/deleteProduct/{id}','ProductController@deleteProduct');
 Route::get('/active/{id}','ProductController@active');
 Route::get('/unactive/{id}','ProductController@unactive');
+Route::get('/addToCart/{id}','ProductController@addToCart');
 
 Route::get('/slider','SliderController@slider');
 Route::get('/addslider','SliderController@addSlider');
