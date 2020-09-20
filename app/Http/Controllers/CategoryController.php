@@ -10,7 +10,10 @@ use App\Product;
 class CategoryController extends Controller
 {
     //
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function addCategory(){
         return view('admin.addCategory');
     }
@@ -59,12 +62,6 @@ public function delete($id){
 
 }
 
-public function view_by_cat($name){
-    $categoris=Category::get();
-    $products=Product::where('product_category',$name)->get();
-    return view('client.shop')->with('products',$products)->with('categories',$categoris);
-
-}
 
 
 

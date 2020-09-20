@@ -53,7 +53,7 @@
 						</button>
 					</div>
 					<div class="text-center p-t-90">
-						<a class="txt1" href="/login">
+						<a class="txt1" href="/userlogin">
 							Do have an account? Signin
 						</a>
 					</div>

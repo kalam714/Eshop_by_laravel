@@ -8,6 +8,8 @@ use App\Product;
 use App\Category;
 use App\Client;
 use Illuminate\Support\Facades\Hash;
+use App\Cart;
+use Session;
 
 class ClientController extends Controller
 {
@@ -30,11 +32,18 @@ class ClientController extends Controller
         return view('client.checkout');
     }
     public function login(){
-        return view('client.login');
+        return view('client.userlogin');
     }
     public function signup(){
         return view('client.signup');
     }
+    public function view_by_cat($name){
+        $categoris=Category::get();
+        $products=Product::where('product_category',$name)->get();
+        return view('client.shop')->with('products',$products)->with('categories',$categoris);
+    
+    }
+    
     public  function createaccount(Request $request){
         $this->validate($request,[
             'email'=>'email|required|unique:clients',
@@ -53,6 +62,7 @@ class ClientController extends Controller
             'email'=>'required',
             'password'=>'required'
         ]);
+
         $client=Client::where('email',$request->input('email'))->first();
         if ($client){
                 if(Hash::check($request->input('password'), $client->paasword)){
@@ -67,6 +77,47 @@ class ClientController extends Controller
             return back()->with('error','yoou do not have an account');
         }
 
+    }
+
+    public function addToCart($id){
+        $product =Product::find($id);
+    
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $id);
+        Session::put('cart', $cart);
+    
+        //dd(Session::get('cart'));
+        return redirect('/shop');
+    }
+    
+ 
+    
+    public function updateQty(Request $request){
+        //print('the product id is '.$request->id.' And the product qty is '.$request->quantity);
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->updateQty($request->id, $request->quantity);
+        Session::put('cart', $cart);
+    
+        //dd(Session::get('cart'));
+        return redirect('/cart');
+    }
+    
+    public function removeItem($product_id){
+        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($product_id);
+       
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        }
+        else{
+            Session::forget('cart');
+        }
+    
+        //dd(Session::get('cart'));
+        return redirect('/cart');
     }
 
 }

@@ -12,7 +12,7 @@
 	          
 	          <li class="nav-item cta cta-colored"><a href="{{URL::to('/cart')}}"  class="nav-link"><span class="icon-shopping_cart">[]</span>
 			  </a></li>
-              <li class="nav-item active"><a href="{{URL::to('/login')}}"  class="nav-link">login</a></li>
+              <li class="nav-item active"><a href="{{URL::to('/userlogin')}}"  class="nav-link">login</a></li>
 	        </ul>
 	      </div>
 	    </div>
