@@ -7,6 +7,7 @@
 		  <div class="home-slider owl-carousel">
 
 		@foreach($sliders as $slider)
+    @if($slider->status==1)
 	      <div class="slider-item" style="background-image: url(/storage/slider_images/{{$slider->slider_image}});">
 	      	<div class="overlay"></div>
 	        <div class="container">
@@ -21,6 +22,7 @@
 	          </div>
 	        </div>
 	      </div>
+        @endif
 		  @endforeach
 
 		  </div>
@@ -88,23 +90,23 @@
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
-								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(frontend/images/category.jpg);">
+								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(frontend/images/pic2.jpg);">
 									<div class="text text-center">
-										<h2>Vegetables</h2>
-										<p>Protect the health of every home</p>
+										<h2>Camera</h2>
+										<p>Pick The Best</p>
 										<p><a href="#" class="btn btn-primary">Shop now</a></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/category-1.jpg);">
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/pic4.png);">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="#">Fruits</a></h2>
+										<h2 class="mb-0"><a href="#">Mobile</a></h2>
 									</div>
 								</div>
-								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/category-2.jpg);">
+								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/preview-img.jpg);">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="#">Vegetables</a></h2>
+										<h2 class="mb-0"><a href="#">Laptop</a></h2>
 									</div>
 								</div>
 							</div>
@@ -112,14 +114,14 @@
 					</div>
 
 					<div class="col-md-4">
-						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/category-3.jpg);">
+						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/pic3.jpg);">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="#">Juices</a></h2>
+								<h2 class="mb-0"><a href="#">Desktop</a></h2>
 							</div>		
 						</div>
-						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/category-4.jpg);">
+						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/new-pic2.jpg);">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="#">Dried</a></h2>
+								<h2 class="mb-0"><a href="#">Camera</a></h2>
 							</div>
 						</div>
 					</div>
@@ -141,6 +143,7 @@
     		<div class="row">
 
              @foreach($products as $product)
+             @if($product->status==1)
 
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
@@ -171,12 +174,13 @@
     					</div>
     				</div>
     			</div>
+          @endif
 				@endforeach
     		</div>
     	</div>
     </section>
 		
-		<section class="ftco-section img" style="background-image: url(frontend/images/bg_3.jpg);">
+		<section class="ftco-section img" style="background-image: url(frontend/images/preview-img.jpg);">
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
